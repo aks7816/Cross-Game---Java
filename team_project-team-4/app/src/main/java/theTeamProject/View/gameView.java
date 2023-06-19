@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
-import java.util.random.*;
+import java.util.Random.*;
 import java.util.Scanner;
 
 import theTeamProject.controllerInterface;
@@ -103,14 +103,14 @@ public class gameView implements ActionListener, gameObserver {
 
         for (int i = 0; i < 25; i++) {
             if (i == 21 || i == 22 || i == 23) {
-                buttons[i] = new JButton("↑");
+                buttons[i] = new JButton("\u2191");
                 buttonPanel.add(buttons[i]);
                 buttons[i].setFont(new Font("Monospaced", Font.BOLD, 30));
                 buttons[i].setForeground(Color.RED);
                 buttons[i].setFocusable(false);
                 buttons[i].addActionListener(this);
             } else if (i == 9 || i == 14 || i == 19) {
-                buttons[i] = new JButton("←");
+                buttons[i] = new JButton("\u2190");
                 buttonPanel.add(buttons[i]);
                 buttons[i].setFont(new Font("Monospaced", Font.BOLD, 30));
                 buttons[i].setForeground(Color.BLUE);
@@ -155,7 +155,7 @@ public class gameView implements ActionListener, gameObserver {
     public void autoMove() {
 
         for (int i = 11; i < 15; i++) {
-            if (buttons[i].getText() == "←") {
+            if (buttons[i].getText() == "\u2190") {
                 if (controller.clicked(i)) {
                     return;
                 }
@@ -163,7 +163,7 @@ public class gameView implements ActionListener, gameObserver {
         }
 
         for (int i = 6; i < 10; i++) {
-            if (buttons[i].getText() == "←") {
+            if (buttons[i].getText() == "\u2190") {
                 if (controller.clicked(i)) {
                     return;
                 }
@@ -171,7 +171,7 @@ public class gameView implements ActionListener, gameObserver {
         }
 
         for (int i = 16; i < 20; i++) {
-            if (buttons[i].getText() == "←") {
+            if (buttons[i].getText() == "\u2190") {
                 if (controller.clicked(i)) {
                     return;
                 }
@@ -196,7 +196,7 @@ public class gameView implements ActionListener, gameObserver {
         for (int i = 0; i < 25; i++) {
             if (autoPlayer == true) {
                 if (e.getSource() == buttons[i]) {
-                    if (Objects.equals(buttons[i].getText(), "↑")) {
+                    if (Objects.equals(buttons[i].getText(), "\u2191")) {
                         controller.clicked(i);
                         autoMove();
                         counter += 1;
@@ -209,12 +209,12 @@ public class gameView implements ActionListener, gameObserver {
 
                 if (e.getSource() == buttons[i]) {
                     if (player) {
-                        if (Objects.equals(buttons[i].getText(), "↑")) {
+                        if (Objects.equals(buttons[i].getText(), "\u2191")) {
                             player = false;
                             controller.clicked(i);
                         }
                     } else {
-                        if (Objects.equals(buttons[i].getText(), "←")) {
+                        if (Objects.equals(buttons[i].getText(), "\u2190")) {
                             player = true;
                             controller.clicked(i);
                         }
@@ -231,10 +231,10 @@ public class gameView implements ActionListener, gameObserver {
     public void repaint() {
         for (int i = 0; i < 25; i++) {
             if (controller.getPiece(i) == 1) {
-                buttons[i].setText("↑");
+                buttons[i].setText("\u2191");
                 buttons[i].setForeground(Color.RED);
             } else if (controller.getPiece(i) == 2) {
-                buttons[i].setText("←");
+                buttons[i].setText("\u2190");
                 buttons[i].setForeground(Color.BLUE);
             } else {
                 buttons[i].setText("");
@@ -251,12 +251,12 @@ public class gameView implements ActionListener, gameObserver {
     }
 
     public void checkWinner() {
-        if (Objects.equals(buttons[1].getText(), "↑") && Objects.equals(buttons[2].getText(), "↑")
-                && Objects.equals(buttons[3].getText(), "↑")) {
+        if (Objects.equals(buttons[1].getText(), "\u2191") && Objects.equals(buttons[2].getText(), "\u2191")
+                && Objects.equals(buttons[3].getText(), "\u2191")) {
             winRed();
 
-        } else if (Objects.equals(buttons[5].getText(), "←") && Objects.equals(buttons[10].getText(), "←")
-                && Objects.equals(buttons[15].getText(), "←")) {
+        } else if (Objects.equals(buttons[5].getText(), "\u2190") && Objects.equals(buttons[10].getText(), "\u2190")
+                && Objects.equals(buttons[15].getText(), "\u2190")) {
             winBlue();
         }
         
