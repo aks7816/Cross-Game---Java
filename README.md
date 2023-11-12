@@ -1,7 +1,6 @@
 # Cross Game
 
 ## About
-The game was developed by me and two teammates as a final project. Here, a user can play against a computer or against another human. The goal of the game is for the user to move all their arrows to the opposite side of the board. Also, this game records the highest score (Lowest number of moves) for each round.
 
 Here, is a demo for single-player against the computer!
 
