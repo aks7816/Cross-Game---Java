@@ -14,7 +14,6 @@ This is a demo for two-players! You could play with a friend :)
 
 ## Design
 
-The game utilizes UML design
 ### View
   - User inputs and selections
   - Display of turns and text
